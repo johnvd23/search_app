@@ -2,10 +2,13 @@ require 'spec_helper'
 
 describe "UserPages" do
   describe "GET /user_pages" do
-    it "works! (now write some real specs)" do
-      # Run the generator again with the --webrat flag if you want to use webrat methods/matchers
-      get user_pages_index_path
-      response.status.should be(200)
+    describe "after saving the user" do
+      before { click_button submit }
+      let(:user) { User.find_by(email: 'user@example.com') }
+
+      it { should have_link('Sign out') }
+      it { should have_title(user.name) }
+      it { should have_selector('div.alert.alert-success', text: 'Welcome') }
     end
   end
 end
