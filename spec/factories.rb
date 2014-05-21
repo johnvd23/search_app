@@ -9,4 +9,9 @@ FactoryGirl.define do
       admin true
     end
   end
+  factory :contact do
+    first_name "Lorem ipsum"
+    last_name "Last Name"
+    user
+  end
 end

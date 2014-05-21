@@ -12,6 +12,13 @@ namespace :db do
       password = "password"
       User.create!(name: name, email: email, password: password,
                    password_confirmation: password)
+      users = User.all(limit: 6)
+                   50.times do
+                     first_name = Faker::Name.name
+                     last_name = Faker::Name.name
+                     users.each { |user| user.contacts.create!(first_name: first_name,
+                       last_name: last_name) }
+                   end            
     end
   end
 end
