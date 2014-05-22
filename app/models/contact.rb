@@ -1,7 +1,5 @@
 class Contact < ActiveRecord::Base
   belongs_to :user
-  has_many :phones
-  has_many :addresses
   default_scope -> { order('last_name ASC') }
   validates :last_name, presence: true
   validates :user_id, presence: true
