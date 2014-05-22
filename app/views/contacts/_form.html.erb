@@ -1,0 +1,14 @@
+
+<%= form_for(@contact) do |f| %>
+  <%= render 'shared/error_messages', object: f.object %>
+ <br>
+ <br>
+ <h3>Add a Contact</h3>
+  <div class="field">
+    <%= f.text_field :first_name, placeholder: "First Name..." %>
+  </div>
+  <div class="field">
+    <%= f.text_field :last_name, placeholder: "Last Name..." %>
+  </div>
+  <%= f.submit "Save", class: "btn btn-large btn-primary" %>
+<% end %>

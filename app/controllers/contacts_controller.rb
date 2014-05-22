@@ -2,11 +2,14 @@ class ContactsController < ApplicationController
   before_action :signed_in_user, only: [:create, :destroy]
   before_action :correct_user,   only: :destroy
 
+  def new
+    @contact = Contact.new
+  end
   def create
     @contact = current_user.contacts.build(contact_params)
     if @contact.save
       flash[:success] = "Contact created!"
-      redirect_to root_url
+      redirect_to contacts_url
     else
       render 'static_pages/home'
     end
