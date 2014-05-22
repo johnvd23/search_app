@@ -1,6 +1,4 @@
 class User < ActiveRecord::Base
-  has_many :contacts
-  has_many :territories
   before_save { self.email = email.downcase }
   before_create :create_remember_token
   validates :name, presence: true, length: { maximum: 50 }
