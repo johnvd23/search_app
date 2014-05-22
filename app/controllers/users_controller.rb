@@ -14,6 +14,8 @@ class UsersController < ApplicationController
       @user = User.find(params[:id])
       @contacts = @user.contacts.paginate(page: params[:page])
     end
+
+      
   
   def create
     @user = User.new(user_params)

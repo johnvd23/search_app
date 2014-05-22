@@ -1,12 +1,5 @@
 <li>
-  <span class="content"><%= contact.first_name %></span>
-  <span class="content"><%= contact.last_name %></span>
-  <span class="timestamp">
-    Added <%= time_ago_in_words(contact.created_at) %> ago.
-    <% if current_user?(contact.user) %>
-      <%= link_to "delete", contact, method: :delete,
-                                       data: { confirm: "Delete " + contact.first_name + " " + contact.last_name + "?" },
-                                       title: contact.last_name %>
-    <% end %>
-  </span>
+  <span class="content"><%= contact.first_name + " " + contact.last_name + " (" + 
+	  contact.user.name + ")" %></span>
 </li>
+

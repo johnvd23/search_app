@@ -1,0 +1,12 @@
+<h1>Contacts</h1>
+  <p>
+<%= form_tag(contacts_path, method: "get") do %>
+  <%= label_tag(:q, "Search for:") %>
+  <%= text_field_tag :search, params[:search] %>
+  <%= submit_tag("Search", :name => nil) %>
+  </p>
+  
+  <ul class="contacts">
+    <%= render @contacts %>
+  </ul>
+<% end %>

@@ -11,7 +11,15 @@ class ContactsController < ApplicationController
       render 'static_pages/home'
     end
   end
-
+  def index
+    @contacts = Contact.search params[:search]
+  end
+  def search
+    @contacts = Contact.search params[:search]
+  end  
+  def show
+    @contacts = Contact.first
+  end  
   def destroy
     @contact.destroy
     redirect_to root_url
