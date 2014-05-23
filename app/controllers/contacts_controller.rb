@@ -45,7 +45,8 @@ class ContactsController < ApplicationController
   private
 
     def contact_params
-      params.require(:contact).permit(:first_name, :last_name, :user_id, :note, :confirmed, :territory_id)
+      params.require(:contact).permit(:first_name, :last_name, :user_id, :note, :confirmed, :territory_id, :street, :street_2,
+      :city, :state, :zip, :phone, :phone_2, :email, :moved, :do_not_call)
     end
     def correct_user
       @contact = current_user.contacts.find_by(id: params[:id])

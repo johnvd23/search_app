@@ -8,6 +8,7 @@ class User < ActiveRecord::Base
                     format:     { with: VALID_EMAIL_REGEX },
                     uniqueness: { case_sensitive: false }
   has_secure_password
+  default_scope -> { order('name ASC') }
   validates :password, length: { minimum: 6 }
 
   def User.new_remember_token

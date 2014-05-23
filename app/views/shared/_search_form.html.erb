@@ -1,5 +1,15 @@
-  <%= form_tag :controller => 'users', :action => 'search', :method => 'get' do %>
-      <%= text_field_tag :search, params[:search], :id => 'search_field' %>
-      <%= submit_tag "Search", :name => nil %> 
-      <%= link_to_function "Clear", "$('search_field').clear()" %>
-  <% end %> 
+
+  
+  <h1>Contacts</h1>
+    <p>
+  <%= form_tag(contacts_path, method: "get") do %>
+    <%= label_tag(:q, "Search for:") %>
+    <%= text_field_tag :search, params[:search] %>
+    <%= submit_tag("Search", :name => nil) %>
+    </p>
+  
+    <ul class="contacts">
+      <%= render @contacts %>
+    </ul>
+
+  <% end %>
