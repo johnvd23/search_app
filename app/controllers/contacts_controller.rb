@@ -14,6 +14,18 @@ class ContactsController < ApplicationController
       render 'static_pages/home'
     end
   end
+  def edit
+    @contact = Contact.find(params[:id])
+  end
+  def update
+    @contact = Contact.find(params[:id])
+      if @contact.update_attributes(contact_params)
+        flash[:success] = "Contact updated"
+        redirect_to @contact
+      else
+        render 'edit'
+      end
+    end
   def index
     @contacts = Contact.search params[:search]
   end
@@ -33,7 +45,7 @@ class ContactsController < ApplicationController
   private
 
     def contact_params
-      params.require(:contact).permit(:first_name, :last_name)
+      params.require(:contact).permit(:first_name, :last_name, :user_id, :note, :confirmed, :territory_id)
     end
     def correct_user
       @contact = current_user.contacts.find_by(id: params[:id])
