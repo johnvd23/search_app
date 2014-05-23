@@ -19,6 +19,7 @@ module SessionsHelper
       redirect_to signin_url, notice: "Please sign in."
     end
   end
+  
   def current_user?(user)
     user == current_user
   end
