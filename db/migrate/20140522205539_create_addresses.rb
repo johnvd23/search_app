@@ -10,5 +10,6 @@ class CreateAddresses < ActiveRecord::Migration
 
       t.timestamps
     end
+    add_index :addresses, [:contact_id, :created_at]
   end
 end

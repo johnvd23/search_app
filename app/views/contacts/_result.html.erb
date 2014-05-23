@@ -1,5 +1,7 @@
+<%= form_for(@contact) do |f| %>
 <li>
   <span class="content"><%= link_to contact.first_name + " " + contact.last_name + " (" + 
 	  contact.user.name + ")", contact %></span> 	
 	  <br>
 </li>
+<% end %>

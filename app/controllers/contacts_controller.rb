@@ -21,7 +21,9 @@ class ContactsController < ApplicationController
     @contacts = Contact.search params[:search]
   end  
   def show
-    @contacts = Contact.first
+    @contact = Contact.find(params[:id])
+    @phones = @contact.phones.all
+    @addresses = @contact.addresses.all
   end  
   def destroy
     @contact.destroy

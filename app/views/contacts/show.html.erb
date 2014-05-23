@@ -1,6 +1,29 @@
 <div class="row">
+	<h3>Contact Info </h3>
   <div class="span8">
       <ol class="contacts">
-        <%= render @contacts %>
+		<h3><span class="content"> <%= @contact.first_name + " " + @contact.last_name + " (" + 
+	  @contact.user.name + ")" %></span> 	</h3>
       </ol>
 </div>
+</div>
+
+<div class="row">
+    <% if @contact.addresses.any? %>
+      <h3>Addresses </h3>
+      <ol class="contacts">
+        <%= render @addresses %>
+      </ol>
+	  <%= link_to 'New Address', new_address_path %>
+	      <% end %>
+</div>
+<div class="row">		  
+   <% if @contact.phones.any? %>
+      <h3>Phones </h3>
+      <ol class="contacts">
+        <%= render @phones %>
+      </ol>
+    <% end %>
+</div>
+
+<%= link_to 'Edit', edit_contact_path(@contact) %> |

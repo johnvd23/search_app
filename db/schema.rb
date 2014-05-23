@@ -24,6 +24,8 @@ ActiveRecord::Schema.define(version: 20140522205647) do
     t.datetime "updated_at"
   end
 
+  add_index "addresses", ["contact_id", "created_at"], name: "index_addresses_on_contact_id_and_created_at"
+
   create_table "contacts", force: true do |t|
     t.string   "first_name"
     t.string   "last_name"
@@ -48,6 +50,8 @@ ActiveRecord::Schema.define(version: 20140522205647) do
     t.datetime "created_at"
     t.datetime "updated_at"
   end
+
+  add_index "phones", ["contact_id", "created_at"], name: "index_phones_on_contact_id_and_created_at"
 
   create_table "territories", force: true do |t|
     t.string   "description"
