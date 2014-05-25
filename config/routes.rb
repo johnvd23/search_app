@@ -1,4 +1,4 @@
-DeafSearch::Application.routes.draw do
+SearchApplication::Application.routes.draw do
 
 
 

@@ -24,4 +24,4 @@ def secure_token
   end
 end
 
-DeafSearch::Application.config.secret_key_base = secure_token
+SearchApplication::Application.config.secret_key_base = secure_token

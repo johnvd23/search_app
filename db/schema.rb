@@ -77,10 +77,10 @@ ActiveRecord::Schema.define(version: 20140523222145) do
 
   add_index "phones", ["contact_id", "created_at"], name: "index_phones_on_contact_id_and_created_at"
 
-  create_table "sqlite_sp_functions", id: false, force: true do |t|
-    t.text "name"
-    t.text "text"
-  end
+#  create_table "sqlite_sp_functions", id: false, force: true do |t|
+#    t.text "name"
+#    t.text "text"
+#  end
 
 # Could not dump table "sqlite_stat1" because of following NoMethodError
 #   undefined method `[]' for nil:NilClass
